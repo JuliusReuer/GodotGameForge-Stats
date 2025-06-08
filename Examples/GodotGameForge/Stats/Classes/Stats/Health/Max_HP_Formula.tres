@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Formula" load_steps=3 format=3 uid="uid://c5uso23iaku2w"]
+
+[ext_resource type="Script" uid="uid://ceb66du25ja4c" path="res://addons/godot_stats/scripts/Runtime/Resources/Formula.gd" id="1_ygfg2"]
+[ext_resource type="Resource" uid="uid://b2mdpr3hti0wu" path="res://Examples/Classes/Stats/Health/Max_HP_Table.tres" id="2_bqmuw"]
+
+[resource]
+script = ExtResource("1_ygfg2")
+formula = "(100 + table.value[source.stat[level]]) * source.base[max_hp]"
+table = ExtResource("2_bqmuw")
+metadata/_custom_type_script = "uid://ceb66du25ja4c"

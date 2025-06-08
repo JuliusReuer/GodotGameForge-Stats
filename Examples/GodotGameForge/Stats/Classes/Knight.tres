@@ -1,0 +1,150 @@
+[gd_resource type="Resource" script_class="Class" load_steps=35 format=3 uid="uid://clodn6xn5y415"]
+
+[ext_resource type="Script" uid="uid://bym548u5k5ald" path="res://addons/godotgameforge-stats/scripts/Runtime/Classes/Lists/AttributeItem.gd" id="1_fbch5"]
+[ext_resource type="Resource" uid="uid://dutgt8aa07ume" path="res://Examples/GodotGameForge/Stats/Classes/Stats/Health/HP.tres" id="2_irde0"]
+[ext_resource type="Script" uid="uid://dql12h4nh08q" path="res://addons/godotgameforge-stats/scripts/Runtime/Classes/Lists/StatItem.gd" id="2_wpfiv"]
+[ext_resource type="Script" uid="uid://3o7duvy4223h" path="res://addons/godotgameforge-stats/scripts/Runtime/Resources/Class.gd" id="3_irde0"]
+[ext_resource type="Resource" uid="uid://c5rf0cc0m0eu4" path="res://Examples/GodotGameForge/Stats/Classes/Stats/Mana/MP.tres" id="3_ytr4u"]
+[ext_resource type="Resource" uid="uid://h6kkw1mfrqeb" path="res://Examples/GodotGameForge/Stats/Classes/Stats/Stamina/Stamina.tres" id="4_7rw1r"]
+[ext_resource type="Resource" uid="uid://emyi2pudex8g" path="res://Examples/GodotGameForge/Stats/Classes/Stats/Experience/Experience.tres" id="4_juet6"]
+[ext_resource type="Resource" uid="uid://chix7fbn46mle" path="res://Examples/GodotGameForge/Stats/Classes/Stats/Experience/Level.tres" id="5_juet6"]
+[ext_resource type="Resource" uid="uid://colm6v1dhru6d" path="res://Examples/GodotGameForge/Stats/Classes/Stats/Health/Max_HP.tres" id="6_byu4e"]
+[ext_resource type="Resource" uid="uid://c5uso23iaku2w" path="res://Examples/GodotGameForge/Stats/Classes/Stats/Health/Max_HP_Formula.tres" id="8_yo7jw"]
+[ext_resource type="Resource" uid="uid://c6t8wk5qk78du" path="res://Examples/GodotGameForge/Stats/Classes/Stats/Mana/Max_MP.tres" id="9_7rw1r"]
+[ext_resource type="Resource" uid="uid://b3hlcucecdx1y" path="res://Examples/GodotGameForge/Stats/Classes/Stats/Stamina/Max_Stamina.tres" id="10_pd7ft"]
+[ext_resource type="Resource" uid="uid://bgel2tnevv4gn" path="res://Examples/GodotGameForge/Stats/Classes/Stats/Stats/Constitution.tres" id="12_2xcgq"]
+[ext_resource type="Resource" uid="uid://d08iymxuiajkf" path="res://Examples/GodotGameForge/Stats/Classes/Stats/Stats/Will.tres" id="13_ai2he"]
+[ext_resource type="Resource" uid="uid://bp4jcld0b02pf" path="res://Examples/GodotGameForge/Stats/Classes/Stats/Stats/Strength.tres" id="14_7mfq5"]
+[ext_resource type="Resource" uid="uid://bdy0cq6gr6wvw" path="res://Examples/GodotGameForge/Stats/Classes/Stats/Stats/Dexterity.tres" id="15_y7l4g"]
+[ext_resource type="Resource" uid="uid://kj43co2baf28" path="res://Examples/GodotGameForge/Stats/Classes/Stats/Stats/Wisdom.tres" id="16_fmocs"]
+[ext_resource type="Resource" uid="uid://b8dop12hfdus3" path="res://Examples/GodotGameForge/Stats/Classes/Stats/Stats/Charisma.tres" id="17_5uufc"]
+[ext_resource type="Resource" uid="uid://cqcnxr2qrp78d" path="res://Examples/GodotGameForge/Stats/Classes/Stats/Stats/Luck.tres" id="18_vg5g0"]
+
+[sub_resource type="Resource" id="Resource_ujix0"]
+script = ExtResource("1_fbch5")
+is_hidden = false
+attribute = ExtResource("2_irde0")
+change_start_percent_enabled = false
+change_start_percent = 1.0
+
+[sub_resource type="Resource" id="Resource_7aov8"]
+script = ExtResource("1_fbch5")
+is_hidden = false
+attribute = ExtResource("3_ytr4u")
+change_start_percent_enabled = false
+change_start_percent = 1.0
+
+[sub_resource type="Resource" id="Resource_2xcgq"]
+script = ExtResource("1_fbch5")
+is_hidden = false
+attribute = ExtResource("4_7rw1r")
+change_start_percent_enabled = false
+change_start_percent = 1.0
+
+[sub_resource type="Resource" id="Resource_a7b80"]
+script = ExtResource("2_wpfiv")
+is_hidden = false
+stat = ExtResource("4_juet6")
+change_base_enabled = false
+change_base = 100.0
+change_formula_enabled = false
+metadata/_custom_type_script = "uid://dql12h4nh08q"
+
+[sub_resource type="Resource" id="Resource_hn5e8"]
+script = ExtResource("2_wpfiv")
+is_hidden = false
+stat = ExtResource("5_juet6")
+change_base_enabled = false
+change_base = 100.0
+change_formula_enabled = false
+metadata/_custom_type_script = "uid://dql12h4nh08q"
+
+[sub_resource type="Resource" id="Resource_w5tp5"]
+script = ExtResource("2_wpfiv")
+is_hidden = true
+stat = ExtResource("6_byu4e")
+change_base_enabled = false
+change_base = 100.0
+change_formula_enabled = false
+change_formula = ExtResource("8_yo7jw")
+metadata/_custom_type_script = "uid://dql12h4nh08q"
+
+[sub_resource type="Resource" id="Resource_pd7ft"]
+script = ExtResource("2_wpfiv")
+is_hidden = true
+stat = ExtResource("9_7rw1r")
+change_base_enabled = false
+change_base = 100.0
+change_formula_enabled = false
+
+[sub_resource type="Resource" id="Resource_yo7jw"]
+script = ExtResource("2_wpfiv")
+is_hidden = true
+stat = ExtResource("10_pd7ft")
+change_base_enabled = false
+change_base = 100.0
+change_formula_enabled = false
+
+[sub_resource type="Resource" id="Resource_ai2he"]
+script = ExtResource("2_wpfiv")
+is_hidden = false
+stat = ExtResource("12_2xcgq")
+change_base_enabled = false
+change_base = 100.0
+change_formula_enabled = false
+
+[sub_resource type="Resource" id="Resource_7mfq5"]
+script = ExtResource("2_wpfiv")
+is_hidden = false
+stat = ExtResource("13_ai2he")
+change_base_enabled = false
+change_base = 100.0
+change_formula_enabled = false
+
+[sub_resource type="Resource" id="Resource_y7l4g"]
+script = ExtResource("2_wpfiv")
+is_hidden = false
+stat = ExtResource("14_7mfq5")
+change_base_enabled = false
+change_base = 100.0
+change_formula_enabled = false
+
+[sub_resource type="Resource" id="Resource_fmocs"]
+script = ExtResource("2_wpfiv")
+is_hidden = false
+stat = ExtResource("15_y7l4g")
+change_base_enabled = false
+change_base = 100.0
+change_formula_enabled = false
+
+[sub_resource type="Resource" id="Resource_5uufc"]
+script = ExtResource("2_wpfiv")
+is_hidden = false
+stat = ExtResource("16_fmocs")
+change_base_enabled = false
+change_base = 100.0
+change_formula_enabled = false
+
+[sub_resource type="Resource" id="Resource_vg5g0"]
+script = ExtResource("2_wpfiv")
+is_hidden = false
+stat = ExtResource("17_5uufc")
+change_base_enabled = false
+change_base = 100.0
+change_formula_enabled = false
+
+[sub_resource type="Resource" id="Resource_rtse3"]
+script = ExtResource("2_wpfiv")
+is_hidden = false
+stat = ExtResource("18_vg5g0")
+change_base_enabled = false
+change_base = 100.0
+change_formula_enabled = false
+
+[resource]
+script = ExtResource("3_irde0")
+_class = "Knight of Tristan"
+Description = ""
+Attributes = Array[ExtResource("1_fbch5")]([SubResource("Resource_ujix0"), SubResource("Resource_7aov8"), SubResource("Resource_2xcgq")])
+Stats = Array[ExtResource("2_wpfiv")]([SubResource("Resource_a7b80"), SubResource("Resource_hn5e8"), SubResource("Resource_w5tp5"), SubResource("Resource_pd7ft"), SubResource("Resource_yo7jw"), SubResource("Resource_ai2he"), SubResource("Resource_7mfq5"), SubResource("Resource_y7l4g"), SubResource("Resource_fmocs"), SubResource("Resource_5uufc"), SubResource("Resource_vg5g0"), SubResource("Resource_rtse3")])
+metadata/_custom_type_script = "uid://3o7duvy4223h"

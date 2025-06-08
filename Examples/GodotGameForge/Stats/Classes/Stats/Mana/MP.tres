@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Attribute" load_steps=4 format=3 uid="uid://c5rf0cc0m0eu4"]
+
+[ext_resource type="Texture2D" uid="uid://2t2u56gl7fd7" path="res://addons/godot_stats/Icons/Mana.png" id="1_o6pdh"]
+[ext_resource type="Script" uid="uid://bt3ms8f72t58p" path="res://addons/godot_stats/scripts/Runtime/Resources/Attribute.gd" id="1_pnwho"]
+[ext_resource type="Resource" uid="uid://c6t8wk5qk78du" path="res://Examples/Classes/Stats/Mana/Max_MP.tres" id="2_xrg1d"]
+
+[resource]
+script = ExtResource("1_pnwho")
+ID = "mp"
+min_value = 0
+max_value = ExtResource("2_xrg1d")
+start_percent = 1.0
+Name = "Mana"
+Acronym = "MP"
+Description = "Energy to cast magic spells"
+icon = ExtResource("1_o6pdh")
+color = Color(0.313726, 0.670588, 0.933333, 1)
+metadata/_custom_type_script = "uid://bt3ms8f72t58p"

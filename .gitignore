@@ -14,3 +14,10 @@ export_credentials.cfg
 .mono/
 data_*/
 mono_crash.*.json
+/android/
+
+# ignore Addons
+addons/godotgameforge/
+addons/kanban_tasks/
+kanban_tasks_data.kanban
+addons/script-ide/

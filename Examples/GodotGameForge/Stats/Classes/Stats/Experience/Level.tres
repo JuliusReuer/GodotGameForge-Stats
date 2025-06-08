@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Stat" load_steps=2 format=3 uid="uid://chix7fbn46mle"]
+
+[ext_resource type="Script" uid="uid://c5g6rxlk1wpgr" path="res://addons/godot_stats/scripts/Runtime/Resources/Stat.gd" id="1_5r6jb"]
+
+[resource]
+script = ExtResource("1_5r6jb")
+ID = "level"
+Base = 1
+Name = "Level"
+Acronym = "Lvl"
+Description = ""
+color = Color(0, 0, 0, 1)
+metadata/_custom_type_script = "uid://c5g6rxlk1wpgr"

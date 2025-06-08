@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Table" load_steps=4 format=3 uid="uid://0v37pc7msiss"]
+
+[ext_resource type="Script" uid="uid://bgs7pf1avy6n" path="res://addons/godotgameforge-stats/scripts/Runtime/Resources/Table.gd" id="1_g61go"]
+[ext_resource type="Script" uid="uid://d05nuyvp4uvd6" path="res://addons/godotgameforge-stats/scripts/Runtime/Classes/Tabels/TabelLinearProgression.gd" id="1_lhkiw"]
+
+[sub_resource type="Resource" id="Resource_8fsl2"]
+script = ExtResource("1_lhkiw")
+increment_per_level = 13
+min_level = 1
+max_level = 30
+
+[resource]
+script = ExtResource("1_g61go")
+table = 2
+base = SubResource("Resource_8fsl2")
+metadata/_custom_type_script = "uid://bgs7pf1avy6n"

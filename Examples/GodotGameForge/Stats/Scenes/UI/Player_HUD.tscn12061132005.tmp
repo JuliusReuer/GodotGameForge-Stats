@@ -1,0 +1,193 @@
+[gd_scene load_steps=18 format=3 uid="uid://1icdchw7keiw"]
+
+[ext_resource type="Script" uid="uid://buqgxud3b64mh" path="res://addons/godot_stats/scripts/Runtime/Components/TraitGroup.gd" id="1_kcolg"]
+[ext_resource type="Script" uid="uid://b27u430jrvlt5" path="res://addons/godot_stats/scripts/Runtime/UI/Components/formula_ui.gd" id="2_2kyej"]
+[ext_resource type="Resource" uid="uid://c6fmyvrfatxkd" path="res://Examples/Classes/Stats/Experience/Experience_Ratio.tres" id="3_jmhoa"]
+[ext_resource type="Script" uid="uid://bd31dneyvneab" path="res://addons/godot_stats/scripts/Runtime/UI/Components/stat_ui.gd" id="4_hbvxb"]
+[ext_resource type="Resource" uid="uid://chix7fbn46mle" path="res://Examples/Classes/Stats/Experience/Level.tres" id="5_jmhoa"]
+[ext_resource type="Script" uid="uid://dw8sful5n36mg" path="res://addons/godot_stats/scripts/Runtime/UI/Components/attribute_ui.gd" id="6_hbvxb"]
+[ext_resource type="Resource" uid="uid://dutgt8aa07ume" path="res://Examples/Classes/Stats/Health/HP.tres" id="7_2wk07"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fgl63"]
+bg_color = Color(0, 0, 0, 0.501961)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kcolg"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Gradient" id="Gradient_fgl63"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_kcolg"]
+gradient = SubResource("Gradient_fgl63")
+width = 100
+
+[sub_resource type="Gradient" id="Gradient_kcolg"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.9)
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1)
+metadata/_snap_count = 25
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lrkax"]
+gradient = SubResource("Gradient_kcolg")
+width = 100
+height = 100
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fgl63"]
+font_size = 40
+shadow_color = Color(0, 0, 0, 0.501961)
+shadow_offset = Vector2(3, 3)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jmhoa"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hbvxb"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jmhoa"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
+
+[node name="PlayerHud" type="CanvasLayer"]
+scale = Vector2(0.5, 0.5)
+transform = Transform2D(0.5, 0, 0, 0.5, 0, 0)
+script = ExtResource("1_kcolg")
+
+[node name="Margin" type="MarginContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Margin/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Margin/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="ProgressBar" type="ProgressBar" parent="Margin/VBoxContainer/HBoxContainer/HBoxContainer" node_paths=PackedStringArray("ratio_fill")]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_fgl63")
+theme_override_styles/fill = SubResource("StyleBoxFlat_kcolg")
+fill_mode = 3
+show_percentage = false
+script = ExtResource("2_2kyej")
+formula = ExtResource("3_jmhoa")
+ratio_fill = NodePath(".")
+
+[node name="TextureRect" type="TextureRect" parent="Margin/VBoxContainer/HBoxContainer/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = SubResource("GradientTexture1D_kcolg")
+
+[node name="TextureRect" type="TextureRect" parent="Margin/VBoxContainer/HBoxContainer/HBoxContainer/TextureRect"]
+self_modulate = Color(0.933333, 0.74902, 0.313726, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_lrkax")
+
+[node name="Label" type="Label" parent="Margin/VBoxContainer/HBoxContainer/HBoxContainer/TextureRect/TextureRect" node_paths=PackedStringArray("Value")]
+self_modulate = Color(0.933333, 0.74902, 0.313726, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "XX"
+label_settings = SubResource("LabelSettings_fgl63")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_hbvxb")
+stat = ExtResource("5_jmhoa")
+Value = NodePath(".")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Margin/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Health" type="ProgressBar" parent="Margin/VBoxContainer/HBoxContainer/VBoxContainer" node_paths=PackedStringArray("color", "progress")]
+custom_minimum_size = Vector2(600, 20)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxEmpty_jmhoa")
+theme_override_styles/fill = SubResource("StyleBoxFlat_hbvxb")
+min_value = 0.0
+max_value = 100.0
+value = 50.0
+show_percentage = false
+script = ExtResource("6_hbvxb")
+attribute = ExtResource("7_2wk07")
+color = NodePath(".")
+format = null
+progress = NodePath(".")
+when_increment = null
+when_decrement = null
+stall_duration = null
+transition_duration = null
+
+[node name="Health_Stall" type="ProgressBar" parent="Margin/VBoxContainer/HBoxContainer/VBoxContainer/Health" node_paths=PackedStringArray("progress")]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_jmhoa")
+min_value = 0.0
+max_value = 100.0
+value = 75.0
+show_percentage = false
+script = ExtResource("6_hbvxb")
+attribute = ExtResource("7_2wk07")
+format = null
+progress = NodePath(".")
+when_increment = null
+when_decrement = true
+stall_duration = 0.25
+transition_duration = 0.75
+
+[node name="ProgressBar2" type="ProgressBar" parent="Margin/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(600, 20)
+layout_mode = 2
+show_percentage = false
+
+[node name="ProgressBar3" type="ProgressBar" parent="Margin/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(400, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+show_percentage = false
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Margin/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2

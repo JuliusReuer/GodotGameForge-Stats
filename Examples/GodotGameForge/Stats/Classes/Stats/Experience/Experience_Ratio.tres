@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Formula" load_steps=3 format=3 uid="uid://c6fmyvrfatxkd"]
+
+[ext_resource type="Script" uid="uid://ceb66du25ja4c" path="res://addons/godot_stats/scripts/Runtime/Resources/Formula.gd" id="1_qhvwf"]
+[ext_resource type="Resource" uid="uid://c1avdp0rngs6e" path="res://Examples/Classes/Stats/Experience/Level_Table.tres" id="2_w0dff"]
+
+[resource]
+script = ExtResource("1_qhvwf")
+formula = "table.ratio[source.stat[xp]]"
+table = ExtResource("2_w0dff")
+metadata/_custom_type_script = "uid://ceb66du25ja4c"

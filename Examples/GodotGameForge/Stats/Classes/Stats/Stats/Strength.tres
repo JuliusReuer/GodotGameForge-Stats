@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Stat" load_steps=3 format=3 uid="uid://bp4jcld0b02pf"]
+
+[ext_resource type="Texture2D" uid="uid://btepo43lb2lya" path="res://addons/godot_stats/Icons/Strength.png" id="1_ou3wh"]
+[ext_resource type="Script" uid="uid://c5g6rxlk1wpgr" path="res://addons/godot_stats/scripts/Runtime/Resources/Stat.gd" id="1_rfhti"]
+
+[resource]
+script = ExtResource("1_rfhti")
+ID = "strength"
+Base = 5
+Name = "Strength"
+Acronym = "STR"
+Description = "How strong physical attacks are"
+icon = ExtResource("1_ou3wh")
+color = Color(0.5019608, 0.5019608, 0.5019608, 1)
+metadata/_custom_type_script = "uid://c5g6rxlk1wpgr"

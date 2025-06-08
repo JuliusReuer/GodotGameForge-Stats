@@ -1,0 +1,114 @@
+[gd_scene load_steps=19 format=3 uid="uid://dawoepyo5uqtu"]
+
+[ext_resource type="PackedScene" uid="uid://1icdchw7keiw" path="res://Examples/GodotGameForge/Stats/Scenes/UI/Player_HUD.tscn" id="1_amnbv"]
+[ext_resource type="Texture2D" uid="uid://dwv6qjuioymyl" path="res://icon.svg" id="2_c08vb"]
+[ext_resource type="Script" uid="uid://b505inso5wi4q" path="res://addons/godotgameforge-stats/scripts/Runtime/Components/Trait.gd" id="3_30yw8"]
+[ext_resource type="Resource" uid="uid://clodn6xn5y415" path="res://Examples/GodotGameForge/Stats/Classes/Knight.tres" id="3_dffug"]
+[ext_resource type="Script" uid="uid://dbcn3lbgskpuy" path="res://addons/godotgameforge-stats/scripts/Runtime/Classes/Traits/Attributes/OverrideAttributeData.gd" id="5_2m2b3"]
+[ext_resource type="Script" uid="uid://b4iy1yyripolx" path="res://addons/godotgameforge-stats/scripts/Runtime/Classes/Traits/Stats/OverrideStatData.gd" id="6_6he21"]
+
+[sub_resource type="Resource" id="Resource_6he21"]
+script = ExtResource("5_2m2b3")
+is_expand = false
+change_start_percent_enabled = false
+change_start_percent = 1.0
+
+[sub_resource type="Resource" id="Resource_v3l7l"]
+script = ExtResource("5_2m2b3")
+is_expand = false
+change_start_percent_enabled = false
+change_start_percent = 1.0
+
+[sub_resource type="Resource" id="Resource_jxwgy"]
+script = ExtResource("5_2m2b3")
+is_expand = false
+change_start_percent_enabled = false
+change_start_percent = 1.0
+
+[sub_resource type="Resource" id="Resource_fl2hf"]
+script = ExtResource("6_6he21")
+is_expand = false
+change_base_enabled = false
+change_base = 1.0
+
+[sub_resource type="Resource" id="Resource_2wjl5"]
+script = ExtResource("6_6he21")
+is_expand = false
+change_base_enabled = false
+change_base = 1.0
+
+[sub_resource type="Resource" id="Resource_ed57w"]
+script = ExtResource("6_6he21")
+is_expand = false
+change_base_enabled = false
+change_base = 1.0
+
+[sub_resource type="Resource" id="Resource_rcear"]
+script = ExtResource("6_6he21")
+is_expand = false
+change_base_enabled = false
+change_base = 1.0
+
+[sub_resource type="Resource" id="Resource_1tax8"]
+script = ExtResource("6_6he21")
+is_expand = false
+change_base_enabled = false
+change_base = 1.0
+
+[sub_resource type="Resource" id="Resource_m6yxb"]
+script = ExtResource("6_6he21")
+is_expand = false
+change_base_enabled = false
+change_base = 1.0
+
+[sub_resource type="Resource" id="Resource_rbx1h"]
+script = ExtResource("6_6he21")
+is_expand = false
+change_base_enabled = false
+change_base = 1.0
+
+[sub_resource type="Resource" id="Resource_0bnm1"]
+script = ExtResource("6_6he21")
+is_expand = false
+change_base_enabled = false
+change_base = 1.0
+
+[sub_resource type="Resource" id="Resource_0ykf8"]
+script = ExtResource("6_6he21")
+is_expand = false
+change_base_enabled = false
+change_base = 1.0
+
+[node name="1_Change_Health" type="Node2D"]
+
+[node name="PlayerHud" parent="." node_paths=PackedStringArray("group_trait") instance=ExtResource("1_amnbv")]
+group_trait = NodePath("../CharacterBody2D/Trait")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="Icon" type="Sprite2D" parent="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_c08vb")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+
+[node name="Trait" type="Node" parent="CharacterBody2D"]
+script = ExtResource("3_30yw8")
+entity_class = ExtResource("3_dffug")
+override_attributes = Dictionary[String, ExtResource("5_2m2b3")]({
+"hp": SubResource("Resource_6he21"),
+"mp": SubResource("Resource_v3l7l"),
+"stamina": SubResource("Resource_jxwgy")
+})
+override_stats = Dictionary[String, ExtResource("6_6he21")]({
+"charisma": SubResource("Resource_fl2hf"),
+"constitution": SubResource("Resource_2wjl5"),
+"dexterity": SubResource("Resource_ed57w"),
+"level": SubResource("Resource_rcear"),
+"luck": SubResource("Resource_1tax8"),
+"strength": SubResource("Resource_m6yxb"),
+"will": SubResource("Resource_rbx1h"),
+"wisdom": SubResource("Resource_0bnm1"),
+"xp": SubResource("Resource_0ykf8")
+})
+metadata/_custom_type_script = "uid://b505inso5wi4q"

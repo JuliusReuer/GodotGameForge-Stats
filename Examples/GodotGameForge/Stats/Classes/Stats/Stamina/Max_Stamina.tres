@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Stat" load_steps=3 format=3 uid="uid://b3hlcucecdx1y"]
+
+[ext_resource type="Texture2D" uid="uid://biyhrrkpu8b0k" path="res://addons/godot_stats/Icons/Stamina.png" id="1_ueqbt"]
+[ext_resource type="Script" uid="uid://c5g6rxlk1wpgr" path="res://addons/godot_stats/scripts/Runtime/Resources/Stat.gd" id="2_0kmeq"]
+
+[resource]
+script = ExtResource("2_0kmeq")
+ID = "max_stamina"
+Base = 100
+Name = "Max Stamina"
+Acronym = "Max St"
+Description = "Maximum Stamina"
+icon = ExtResource("1_ueqbt")
+color = Color(0.933333, 0.74902, 0.313726, 1)
+metadata/_custom_type_script = "uid://c5g6rxlk1wpgr"

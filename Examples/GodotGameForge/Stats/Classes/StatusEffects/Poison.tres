@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="StatusEffect" load_steps=3 format=3 uid="uid://djs1aaye7htro"]
+
+[ext_resource type="Script" uid="uid://d4luoa0lvj1k5" path="res://addons/godot_stats/scripts/Runtime/Resources/StatusEffect.gd" id="1_05ejn"]
+[ext_resource type="Texture2D" uid="uid://dgq1uytbouqq3" path="res://addons/godot_stats/Icons/Poison.png" id="1_q6krl"]
+
+[resource]
+script = ExtResource("1_05ejn")
+type = 1
+max_stack = 5
+is_hidden = false
+has_duration = true
+duration = 5.0
+Name = "Poison"
+Acronym = "POI"
+Description = "Applies damage over time"
+icon = ExtResource("1_q6krl")
+color = Color(0.407843, 0.933333, 0.313726, 1)
+metadata/_custom_type_script = "uid://d4luoa0lvj1k5"

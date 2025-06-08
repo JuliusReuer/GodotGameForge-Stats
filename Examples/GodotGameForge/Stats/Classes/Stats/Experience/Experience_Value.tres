@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Formula" load_steps=3 format=3 uid="uid://coydnacchwjh6"]
+
+[ext_resource type="Script" uid="uid://ceb66du25ja4c" path="res://addons/godot_stats/scripts/Runtime/Resources/Formula.gd" id="1_vkofx"]
+[ext_resource type="Resource" uid="uid://c1avdp0rngs6e" path="res://Examples/Classes/Stats/Experience/Level_Table.tres" id="2_g67kl"]
+
+[resource]
+script = ExtResource("1_vkofx")
+formula = "table.current[source.stat[xp]]"
+table = ExtResource("2_g67kl")
+metadata/_custom_type_script = "uid://ceb66du25ja4c"

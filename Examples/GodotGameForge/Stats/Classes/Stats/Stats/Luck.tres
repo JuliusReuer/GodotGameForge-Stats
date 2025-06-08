@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Stat" load_steps=3 format=3 uid="uid://cqcnxr2qrp78d"]
+
+[ext_resource type="Texture2D" uid="uid://ba0xgj7aqitg6" path="res://addons/godot_stats/Icons/Luck.png" id="1_jhtec"]
+[ext_resource type="Script" uid="uid://c5g6rxlk1wpgr" path="res://addons/godot_stats/scripts/Runtime/Resources/Stat.gd" id="1_xi1mg"]
+
+[resource]
+script = ExtResource("1_xi1mg")
+ID = "luck"
+Base = 5
+Name = "Luck"
+Acronym = "LCK"
+Description = "Even a nobody can save the day with a bit of luck!"
+icon = ExtResource("1_jhtec")
+color = Color(0.5019608, 0.5019608, 0.5019608, 1)
+metadata/_custom_type_script = "uid://c5g6rxlk1wpgr"

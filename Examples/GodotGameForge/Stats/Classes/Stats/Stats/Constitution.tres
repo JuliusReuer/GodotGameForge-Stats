@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Stat" load_steps=3 format=3 uid="uid://bgel2tnevv4gn"]
+
+[ext_resource type="Texture2D" uid="uid://cyhqs5frd5iip" path="res://addons/godot_stats/Icons/Constitution.png" id="1_0dw0v"]
+[ext_resource type="Script" uid="uid://c5g6rxlk1wpgr" path="res://addons/godot_stats/scripts/Runtime/Resources/Stat.gd" id="1_ajtgv"]
+
+[resource]
+script = ExtResource("1_ajtgv")
+ID = "constitution"
+Base = 5
+Name = "Constitution"
+Acronym = "CON"
+Description = "Defense against physical attacks"
+icon = ExtResource("1_0dw0v")
+color = Color(0.5019608, 0.5019608, 0.5019608, 1)
+metadata/_custom_type_script = "uid://c5g6rxlk1wpgr"

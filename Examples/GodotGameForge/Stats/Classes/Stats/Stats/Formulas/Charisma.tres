@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Formula" load_steps=2 format=3 uid="uid://cmx73lwhbyme7"]
+
+[ext_resource type="Script" uid="uid://ceb66du25ja4c" path="res://addons/godot_stats/scripts/Runtime/Resources/Formula.gd" id="1_iup5r"]
+
+[resource]
+script = ExtResource("1_iup5r")
+formula = "source.base[charisma] * source.stat[level]"
+metadata/_custom_type_script = "uid://ceb66du25ja4c"

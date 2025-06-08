@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Stat" load_steps=2 format=3 uid="uid://emyi2pudex8g"]
+
+[ext_resource type="Script" uid="uid://c5g6rxlk1wpgr" path="res://addons/godot_stats/scripts/Classes/Stat.gd" id="1_qcnhb"]
+
+[resource]
+script = ExtResource("1_qcnhb")
+ID = "xp"
+Base = 1
+Name = "Experience"
+Acronym = "XP"
+Description = "Total amount of progression points"
+color = Color(0, 0, 0, 1)
+metadata/_custom_type_script = "uid://c5g6rxlk1wpgr"

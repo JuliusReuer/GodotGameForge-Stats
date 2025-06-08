@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Attribute" load_steps=4 format=3 uid="uid://h6kkw1mfrqeb"]
+
+[ext_resource type="Script" uid="uid://bt3ms8f72t58p" path="res://addons/godot_stats/scripts/Runtime/Resources/Attribute.gd" id="1_c46ly"]
+[ext_resource type="Texture2D" uid="uid://biyhrrkpu8b0k" path="res://addons/godot_stats/Icons/Stamina.png" id="1_iuh8y"]
+[ext_resource type="Resource" uid="uid://b3hlcucecdx1y" path="res://Examples/Classes/Stats/Stamina/Max_Stamina.tres" id="2_fl8eb"]
+
+[resource]
+script = ExtResource("1_c46ly")
+ID = "stamina"
+min_value = 0
+max_value = ExtResource("2_fl8eb")
+start_percent = 1.0
+Name = "Stamina"
+Acronym = "STA"
+Description = "Energy to Perform physical actions"
+icon = ExtResource("1_iuh8y")
+color = Color(0.933333, 0.74902, 0.313726, 1)
+metadata/_custom_type_script = "uid://bt3ms8f72t58p"

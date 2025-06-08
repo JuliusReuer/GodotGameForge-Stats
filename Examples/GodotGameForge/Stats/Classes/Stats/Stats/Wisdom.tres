@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Stat" load_steps=3 format=3 uid="uid://kj43co2baf28"]
+
+[ext_resource type="Script" uid="uid://c5g6rxlk1wpgr" path="res://addons/godot_stats/scripts/Runtime/Resources/Stat.gd" id="1_mukqb"]
+[ext_resource type="Texture2D" uid="uid://db3t5olx43nnq" path="res://addons/godot_stats/Icons/Wisdom.png" id="1_qkvk8"]
+
+[resource]
+script = ExtResource("1_mukqb")
+ID = "wisdom"
+Base = 5
+Name = "Wisdom"
+Acronym = "WIS"
+Description = "How powerful magic attacks are"
+icon = ExtResource("1_qkvk8")
+color = Color(0.5019608, 0.5019608, 0.5019608, 1)
+metadata/_custom_type_script = "uid://c5g6rxlk1wpgr"
