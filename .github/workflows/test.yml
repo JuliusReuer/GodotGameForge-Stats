@@ -22,9 +22,9 @@ jobs:
 
       - name: Create examples.zip
         run: |
-            cd Examples/GodotGameForge/Stats
-            zip -r ../../../../examples.zip .
-            cd ../../../../
+            cd Examples/GodotGameForge
+            zip -r ../../examples.zip ./Stats
+            cd ../../
 
       - name: Check files before release
         run: ls -l
