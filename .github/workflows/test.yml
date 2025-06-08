@@ -16,8 +16,8 @@ jobs:
 
       - name: Create plugin.zip
         run: |
-            cd addons/godotgameforge-stats
-            zip -r ../../plugin.zip .
+            cd addons
+            zip -r ../../plugin.zip ./godotgameforge-stats
             cd ../..
 
       - name: Create examples.zip
@@ -30,7 +30,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
             files: |
-                plugin.zip
-                examples.zip
+              plugin.zip
+              examples.zip
         env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
