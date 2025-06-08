@@ -17,7 +17,7 @@ jobs:
       - name: Create plugin.zip
         run: |
             cd addons
-            zip -r ../../plugin.zip ./godotgameforge-stats
+            zip -r ../plugin.zip ./godotgameforge-stats
             cd ../..
 
       - name: Create examples.zip
