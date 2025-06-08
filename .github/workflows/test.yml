@@ -26,6 +26,9 @@ jobs:
             zip -r ../../../../examples.zip .
             cd ../../../../
 
+      - name: Check files before release
+        run: ls -l
+
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
