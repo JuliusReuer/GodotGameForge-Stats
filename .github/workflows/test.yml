@@ -1,0 +1,36 @@
+name: Create Release with Plugin and Examples
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Create plugin.zip
+        run: |
+            cd addons/godotgameforge-stats
+            zip -r ../../plugin.zip .
+            cd ../..
+
+      - name: Create examples.zip
+        run: |
+            cd Examples/GodotGameForge/Stats
+            zip -r ../../../../examples.zip .
+            cd ../../../../
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+            files: |
+                plugin.zip
+                examples.zip
+        env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
