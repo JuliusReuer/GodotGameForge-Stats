@@ -17,7 +17,8 @@ mono_crash.*.json
 /android/
 
 # ignore Addons
-addons/godotgameforge/
-addons/kanban_tasks/
+/addons/*
+!/addons/godotgameforge-stats
+
 kanban_tasks_data.kanban
-addons/script-ide/
+
