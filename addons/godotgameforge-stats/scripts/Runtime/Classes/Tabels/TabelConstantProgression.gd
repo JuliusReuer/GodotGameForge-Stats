@@ -1,4 +1,4 @@
-class_name TableConstantProgession
+class_name TableConstantProgression
 extends BaseTable
 
 @export var increment: int = 50

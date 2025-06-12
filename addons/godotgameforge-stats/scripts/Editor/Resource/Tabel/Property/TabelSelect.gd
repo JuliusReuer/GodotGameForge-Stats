@@ -18,7 +18,7 @@ func _item_selected(index: int):
 	var base: BaseTable
 	match index:
 		0:
-			base = TableConstantProgession.new()
+			base = TableConstantProgression.new()
 		1:
 			base = TableGeometricProgression.new()
 		2:
@@ -26,7 +26,7 @@ func _item_selected(index: int):
 		3:
 			base = TableManualProgression.new()
 		_:
-			base = BaseTable.new()
+			return
 	var table = get_edited_object() as Table
 	table.base = base
 	emit_changed(get_edited_property(), index)

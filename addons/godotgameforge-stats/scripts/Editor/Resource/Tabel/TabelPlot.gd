@@ -25,7 +25,7 @@ func _gui_input(event: InputEvent) -> void:
 
 
 func _draw() -> void:
-	if table is TableConstantProgession:
+	if table is TableConstantProgression:
 		cur_color = Color.BLUE
 	elif table is TableGeometricProgression:
 		cur_color = Color.RED
