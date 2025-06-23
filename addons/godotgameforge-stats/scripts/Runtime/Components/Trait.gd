@@ -13,6 +13,7 @@ var runtime_attributes: RuntimeAttributes
 
 
 func _ready() -> void:
+	get_parent().set_meta("trait",self)
 	runtime_init_stats()
 	runtime_init_attributes()
 

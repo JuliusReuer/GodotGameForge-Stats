@@ -4,13 +4,7 @@ class_name FormulaExpression
 class FormulaExpressionResult:
 	var success: bool
 	var new_value: float
-
-
-static var _create_tokens_list: Array[String] = []
-static var _operator_stack: Array[String] = []
-static var _output_queue: Array[String] = []
-static var _evaluation_stack: Array[String] = []
-static var _evaluation_values: Array[float] = []
+	var error: String
 
 static var _operators: Dictionary[String,Operator] = {
 	"-": Operator.new(Function.SUB, 2, 2, Associativity.L),
@@ -47,7 +41,7 @@ var _input_decoder: Dictionary[String,int]
 func _init(input: String) -> void:
 	input = _clean_input(input)
 	var infixTokens: Array[String] = _input_to_tokens(input)
-	infixTokens = _setup_varaibles(infixTokens)
+	infixTokens = _setup_variables(infixTokens)
 	infixTokens = _fix_unary_operators(infixTokens)
 	_RPNTokens = _format_to_rpn(infixTokens).duplicate()  #Has to Deepclone Otherwies would override RPN tokens of other Formulas
 	_input_decoder = {}
@@ -65,7 +59,7 @@ func _init(input: String) -> void:
 #region internal methods
 func evaluate(domain: Domain, inputs: Array[float]):
 	var result = _evaluate_tokens(_RPNTokens, domain, inputs)
-	return {"success": result.success, "value": result.new_value}
+	return {"success": result.success, "value": result.new_value, "error": result.error}
 
 
 #endregion
@@ -73,17 +67,17 @@ func evaluate(domain: Domain, inputs: Array[float]):
 static func _clean_input(input: String) -> String:
 	var result: String = input.to_lower()
 	result = result.strip_edges()
-	if len(result):
+	if len(result) == 0:
 		return result
 
 	if _is_operator(result[len(result) - 1]):
-		result.trim_suffix(result[len(result) - 1])
+		result = result.trim_suffix(result[len(result) - 1])
 
 	return result
 
 
 static func _input_to_tokens(input: String) -> Array[String]:
-	_create_tokens_list.clear()
+	var _create_tokens_list: Array[String] = []
 	var current_string = ""
 	for char in input:
 		if _is_command(char):
@@ -104,7 +98,7 @@ static func _input_to_tokens(input: String) -> Array[String]:
 	return _create_tokens_list
 
 
-static func _setup_varaibles(tokens: Array[String]) -> Array[String]:
+static func _setup_variables(tokens: Array[String]) -> Array[String]:
 	var index = 0
 	for i in len(tokens):
 		if _is_variable(tokens[i]):
@@ -129,8 +123,8 @@ static func _fix_unary_operators(tokens: Array[String]) -> Array[String]:
 
 
 static func _format_to_rpn(tokens: Array[String]) -> Array[String]:
-	_operator_stack.clear()
-	_output_queue.clear()
+	var _operator_stack: Array[String] = []
+	var _output_queue: Array[String] = []
 	for token in tokens:
 		if _is_command(token):
 			if _is_open_bracket(token):
@@ -175,13 +169,13 @@ static func _format_to_rpn(tokens: Array[String]) -> Array[String]:
 func _evaluate_tokens(
 	tokens: Array[String], domain: Domain, inputs: Array[float]
 ) -> FormulaExpressionResult:
-	_evaluation_stack.clear()
+	var _evaluation_stack: Array[String] = []
 	for token in tokens:
 		if _is_operator(token):
 			var tokenOperator: Operator = _token_to_operator(token)
-			_evaluation_values.clear()
+			var _evaluation_values: Array[float] = []
 			var parsed = true
-
+			
 			while (
 				len(_evaluation_stack) > 0
 				&& !_is_command(_evaluation_stack[len(_evaluation_stack) - 1])
@@ -201,6 +195,12 @@ func _evaluate_tokens(
 				var res = FormulaExpressionResult.new()
 				res.success = false
 				res.new_value = 0
+				res.error = " Parsing error (Parsed: %s,%d values != %d inputs)" % [parsed, len(_evaluation_values),tokenOperator.inputs]
+				res.error += "\n Token: \"%s\"" % token
+				res.error += "\n " + str(tokenOperator)
+				res.error += "\n Values: " + str(_evaluation_values)
+				res.error += "\n Formular tokens: " + str(_RPNTokens)
+				res.error += "\n Current Input: "+str(inputs)
 				return res
 
 		elif _is_variable(token):
@@ -353,7 +353,7 @@ static func _is_variable(token: String):
 
 
 static func _variable_index(token: String) -> int:
-	return int(token) if len(token) > 1 else -1
+	return int(token.substr(1)) if len(token) > 1 else -1
 
 
 static func _is_open_bracket(token: String) -> bool:

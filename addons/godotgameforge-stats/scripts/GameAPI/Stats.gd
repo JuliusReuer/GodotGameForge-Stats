@@ -1,5 +1,21 @@
 class_name Stats
 
+static func _parse_operator(operation:String)->ValueChange.ChangeOperator:
+	var operator: ValueChange.ChangeOperator
+	match operation:
+		"=":
+			operator = ValueChange.ChangeOperator.SET
+		"+":
+			operator = ValueChange.ChangeOperator.ADD
+		"-":
+			operator = ValueChange.ChangeOperator.SUB
+		"*":
+			operator = ValueChange.ChangeOperator.MUL
+		"/":
+			operator = ValueChange.ChangeOperator.DIV
+		_:
+			printerr("Unknow operator \"%s\""%operator)
+	return operator
 
 static func add_stat_modifier():
 	pass
@@ -13,19 +29,7 @@ static func add_status_effect():
 static func change_attribute_str(
 	target: Trait, attribute_id: String, operation: String, value: float
 ):
-	var operator: ValueChange.ChangeOperator
-	match operation:
-		"=":
-			operator = ValueChange.ChangeOperator.SET
-		"+":
-			operator = ValueChange.ChangeOperator.ADD
-		"-":
-			operator = ValueChange.ChangeOperator.SUB
-		"*":
-			operator = ValueChange.ChangeOperator.MUL
-		"/":
-			operator = ValueChange.ChangeOperator.DIV
-	change_attribute(target, attribute_id, ValueChange.new(operator, value))
+	change_attribute(target, attribute_id, ValueChange.new(_parse_operator(operation), value))
 
 
 static func change_attribute(target: Trait, attribute_id: String, change: ValueChange):
@@ -34,19 +38,7 @@ static func change_attribute(target: Trait, attribute_id: String, change: ValueC
 
 
 static func change_stat_str(target: Trait, stat_id: String, operation: String, value: float):
-	var operator: ValueChange.ChangeOperator
-	match operation:
-		"=":
-			operator = ValueChange.ChangeOperator.SET
-		"+":
-			operator = ValueChange.ChangeOperator.ADD
-		"-":
-			operator = ValueChange.ChangeOperator.SUB
-		"*":
-			operator = ValueChange.ChangeOperator.MUL
-		"/":
-			operator = ValueChange.ChangeOperator.DIV
-	change_stat(target, stat_id, ValueChange.new(operator, value))
+	change_stat(target, stat_id, ValueChange.new(_parse_operator(operation), value))
 
 
 static func change_stat(target: Trait, stat_id: String, change: ValueChange):

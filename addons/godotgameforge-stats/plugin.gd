@@ -13,6 +13,9 @@ func _disable_plugin() -> void:
 
 
 var preview_gen = preload("icons.gd")
+
+var sub_menu: StatsUIElementNodeMenuMaker
+
 #region Nodes
 var trait_inspector: TraitEditorInspectorPlugin
 #endregion
@@ -30,8 +33,8 @@ func _enter_tree():
 	preview_gen = preview_gen.new()
 	get_editor_interface().get_resource_previewer().add_preview_generator(preview_gen)
 	#region Nodes
-	var menu = StatsUIElementEditorContextMenuPlugin.new()
-	add_context_menu_plugin(EditorContextMenuPlugin.CONTEXT_SLOT_SCENE_TREE,menu)
+	sub_menu = StatsUIElementNodeMenuMaker.new()
+	GameForgeEditorContextMenuPlugin.makers.append(sub_menu)
 	
 	if trait_inspector == null:
 		trait_inspector = TraitEditorInspectorPlugin.new()
@@ -57,7 +60,9 @@ func _enter_tree():
 
 func _exit_tree():
 	get_editor_interface().get_resource_previewer().remove_preview_generator(preview_gen)
-
+	
+	GameForgeEditorContextMenuPlugin.makers.erase(sub_menu)
+	
 	if trait_inspector != null:
 		remove_inspector_plugin(trait_inspector)
 		trait_inspector = null

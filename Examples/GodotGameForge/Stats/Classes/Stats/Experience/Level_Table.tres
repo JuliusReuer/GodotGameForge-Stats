@@ -5,12 +5,9 @@
 
 [sub_resource type="Resource" id="Resource_djj6n"]
 script = ExtResource("1_djj6n")
-increment_per_level = 50
-min_level = 1
 max_level = 30
 
 [resource]
 script = ExtResource("2_djj6n")
-table = 2
 base = SubResource("Resource_djj6n")
 metadata/_custom_type_script = "uid://bgs7pf1avy6n"

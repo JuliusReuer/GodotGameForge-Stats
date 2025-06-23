@@ -37,6 +37,8 @@ func calculate(source: Trait, target: Trait):
 	var result = exp.evaluate(domain, _inputs)
 	if result["success"]:
 		return result["value"]
+	else:
+		printerr(result["error"])
 	return null
 
 

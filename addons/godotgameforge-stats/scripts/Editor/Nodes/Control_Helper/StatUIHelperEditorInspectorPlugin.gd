@@ -1,18 +1,26 @@
-class_name StatsUIElementEditorContextMenuPlugin
-extends EditorContextMenuPlugin
+class_name StatsUIElementNodeMenuMaker
+extends GodotGameForgeNodeMenuMaker
 
 const stat: CompressedTexture2D = preload("res://addons/godotgameforge-stats/Icons/Stat.png")
 const attr: CompressedTexture2D = preload("res://addons/godotgameforge-stats/Icons/Attr.png")
 const formula: CompressedTexture2D = preload("res://addons/godotgameforge-stats/Icons/Formula.png")
 const trait_img: CompressedTexture2D = preload("res://addons/godotgameforge-stats/Icons/Traits.png")
 
-func _popup_menu(paths: PackedStringArray) -> void:
-	if len(paths) != 1:
-		return
-	var popup = PopupMenu.new()
+func _init():
+	name = "Stat UI"
+
+func show(nodes:Array[Node]):
+	if len(nodes) != 1:
+		return false
+	if nodes[0] is StatsUIElement:
+		return false
+	return true
+
+func get_icon():
+	return trait_img
+
+func get_menu(nodes:Array[Node]):
 	var sub_menu = PopupMenu.new()
-	popup.add_icon_item(trait_img,"Stat UI")
-	popup.add_submenu_node_item("Stat UI",sub_menu)
 	
 	#region Stats UI
 	var stat_image = stat.get_image()
@@ -27,8 +35,4 @@ func _popup_menu(paths: PackedStringArray) -> void:
 	sub_menu.add_icon_item(attributes_texture,"Attributes UI")
 	#endregion
 	
-	add_context_submenu_item("Godot Game Forge",popup)
-	var popup_p = PopupMenu.new()
-	popup_p.add_item("test")
-	add_context_submenu_item("Godot Game Forge",popup_p)
-	print(EditorInterface.get_edited_scene_root().get_node(paths[0]))
+	return sub_menu

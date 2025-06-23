@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GodotGameForge-Stats"
-config/tags=PackedStringArray("plugin")
+config/tags=PackedStringArray("godot_game_froge", "plugin")
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
